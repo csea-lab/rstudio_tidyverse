@@ -1,0 +1,311 @@
+---
+title: "Basic R & Tidyverse R"
+format: revealjs
+---
+
+# $R2r\pm8p$
+
+*R Tour in about 8 pages* -- Base R, Readr, Tidyr, Dplyr
+
+---
+
+![](base-r1.png){.absolute top="-120" left="-100" height="300"}
+
+---
+
+## {background-video="cs_mov/base-r-help.mov" background-video-loop="false"}
+
+---
+
+## {background-video="cs_mov/.mov" background-video-loop="false"}
+
+
+
+
+---
+
+![](base-r2.png){.absolute top="175" left="-100"  height="300"}
+
+---
+
+## {background-video="cs_mov/base-r-dtypes.mov" background-video-loop="false"}
+
+
+---
+
+## {background-video="cs_mov/base-r-lists-mats.mov" background-video-loop="false"}
+
+
+---
+
+## {background-video="cs_mov/base-r-dataframes.mov" background-video-loop="false"}
+
+
+---
+
+
+![](data-import-cheatsheet-thumbs.png){.absolute top="-120" right="0" height="300"}
+![](tidyr-thumbs.png){.absolute top="175" right="0" height="300"}
+![](data-transformation-cheatsheet-thumbs.png){.absolute bottom="-100" right="0" height="300"}
+
+
+---
+
+# Basic R (2)
+
+
+---
+
+## {background-video="cs_mov/base-r-help.mov" background-video-loop="false"}
+
+---
+
+![](base-r1.png)
+
+
+
+---
+
+![](base-r2.png)
+
+## Getting Help
+
+## Using Packages
+
+## Working Directory (and Projects)
+
+## R Environment & Namespace
+
+## Datatypes & Structures
+
+- character strings
+- numeric: integer or floating point
+- boolean
+- factor
+
+
+- vectors 
+- matrices
+- lists
+- factors
+- dataframes
+
+## Vectors & Matrices (named?)
+
+## Lists, Factors, Dataframes
+
+## Functions
+
+c(), [], <-, |> , seq(), $ or . 
++,-,*,/,//,%,
+
+## Metaprogramming 
+
+- string manipulation
+- function functions
+
+
+## Math Functions
+
+
+## Statistics
+~
+
+
+
+# Tidyverse R
+
+```{latex}
+                                          .---> Communicate
+read -> wrangle ---.--> transform ---+-- /
+                   ^                 |            
+                   |                 v
+                   model <-- visualize 
+                   
+```
+
+## Tidyverse Concepts
+
+![](tidydata_1.jpg)
+
+## Tidyverse Concepts
+
+![](tidydata_2.jpg)
+
+## Tidyverse Concepts
+
+![](tidydata_3.jpg)
+
+
+## readr, haven, rvest, & tibble (2)
+
+
+---
+
+![](readr.png)
+---
+
+## {background-video="cs_mov/.mov" background-video-loop="false"}
+
+
+---
+
+![](readxl2.png)
+---
+
+
+## {background-video="cs_mov/readxl.mov" background-video-loop="false"}
+
+
+---
+
+![](tidyr1.png)
+
+---
+
+## {background-video="cs_mov/tidyr-def.mov" background-video-loop="false"}
+
+
+---
+
+## {background-video="cs_mov/tidyr-tibble.mov" background-video-loop="false"}
+
+---
+
+## tibble
+
+
+---
+
+## {background-video="cs_mov/tidyr-pivot.mov" background-video-loop="false"}
+
+
+---
+
+## pivot
+
+
+---
+
+## {background-video="cs_mov/tidyr-sep-unite.mov" background-video-loop="false"}
+
+---
+
+
+## extract, unite & separate
+
+---
+
+
+## Dplyr 
+
+
+---
+
+![](dplyr1.png)
+---
+
+## {background-video="cs_mov/dplyr-pipe-summ.mov" background-video-loop="false"}
+
+---
+
+## {background-video="cs_mov/dplyr-filter-slice-cases.mov" background-video-loop="false"}
+
+
+
+---
+
+![](dplyr_filter.jpg)
+
+
+---
+
+## {background-video="cs_mov/dplyr-select-variable.mov" background-video-loop="false"}
+
+
+--- 
+
+![](dplyr_relocate.png)
+
+---
+
+![](dplyr_across.png)
+
+---
+
+## {background-video="cs_mov/dplyr-mutate-variable.mov" background-video-loop="false"}
+
+---
+
+## Mutate
+
+
+![](dplyr_mutate.png)
+
+---
+
+## {background-video="cs_mov/dplyr-un-group.mov" background-video-loop="false"}
+
+
+
+---
+
+
+## Dplyr
+
+
+
+---
+
+
+![](dplyr2.png)
+
+---
+
+## {background-video="cs_mov/dplyr-preserve-cases.mov" background-video-loop="false"}
+
+---
+
+![](dplyr_case_when.png)
+
+
+---
+
+## {background-video="cs_mov/dplyr-joins.mov" background-video-loop="false"}
+
+
+
+# Advanced R (5)
+
+## Environments
+## Data Objects
+## Functions
+## Subsetting
+
+## Reading in (wait TV)
+
+## R datatypes 
+- atomic datatypes
+
+- data structures
+  - vectors (1 type: char or int flt)
+  - lists
+  - factors
+  - dataframes
+
+## functions
+
+- assignment
+- arith
+- logic
+- flow control
+
+## m/l/t-aply
+
+doit -n 4 -P thread raw_epochs_ar_pi
+
+
+
+
+
+
