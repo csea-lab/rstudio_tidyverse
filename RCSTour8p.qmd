@@ -38,17 +38,15 @@ Base R, Readr, Tidyr, Dplyr
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/base-r-dtypes.mov" background-video-loop="false"}
+
 ## {background="cs_mov/base-r-dtypes.gif"}
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/base-r-lists-mats.mov" background-video-loop="false"}
 ## {background="cs_mov/base-r-lists-mats.gif"}
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/base-r-dataframes.mov" background-video-loop="false"}
 ## {background="cs_mov/base-r-dataframes.gif"}
 
 ------------------------------------------------------------------------
@@ -61,7 +59,6 @@ Base R, Readr, Tidyr, Dplyr
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/base-r-help.mov" background-video-loop="false"}
 ## {background="cs_mov/base-r-help.gif"}
 
 ------------------------------------------------------------------------
@@ -148,33 +145,32 @@ read -> wrangle ---.--> transform ---+-- /
 
 ## ![](readr.png)
 
-##  {background-video="cs_mov/.mov" background-video-loop="false"}
 ## {background="cs_mov/.gif"}
+
 ------------------------------------------------------------------------
 
 ## ![](readxl2.png)
 
-##  {background-video="cs_mov/readxl.mov" background-video-loop="false"}
 ## {background="cs_mov/readxl.gif"}
+
 ------------------------------------------------------------------------
 
 ![](tidyr1.png)
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/tidyr-def.mov" background-video-loop="false"}
 ## {background="cs_mov/.gif"}
+
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/tidyr-tibble.mov" background-video-loop="false"}
 ## {background="cs_mov/tidyr-def.gif"}
+
 ------------------------------------------------------------------------
 
 ## tibble
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/tidyr-pivot.mov" background-video-loop="false"}
 ## {background="cs_mov/tidyr-pivot.gif"}
 
 ------------------------------------------------------------------------
@@ -183,7 +179,6 @@ read -> wrangle ---.--> transform ---+-- /
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/tidyr-sep-unite.mov" background-video-loop="false"}
 ## {background="cs_mov/tidyr-sep-unite.gif"}
 
 ------------------------------------------------------------------------
@@ -198,12 +193,10 @@ read -> wrangle ---.--> transform ---+-- /
 
 ## ![](dplyr1.png)
 
-##  {background-video="cs_mov/dplyr-pipe-summ.mov" background-video-loop="false"}
 ## {background="cs_mov/dplyr-pipe-summ.gif"}
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/dplyr-filter-slice-cases.mov" background-video-loop="false"}
 ## {background="cs_mov/dplyr-filter-slice-cases.gif"}
 
 ------------------------------------------------------------------------
@@ -212,7 +205,6 @@ read -> wrangle ---.--> transform ---+-- /
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/dplyr-select-variable.mov" background-video-loop="false"}
 ## {background="cs_mov/dplyr-select-variable.gif"}
 
 ------------------------------------------------------------------------
@@ -225,7 +217,6 @@ read -> wrangle ---.--> transform ---+-- /
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/dplyr-mutate-variable.mov" background-video-loop="false"}
 ## {background="cs_mov/dplyr-mutate-variable.gif"}
 
 ------------------------------------------------------------------------
@@ -236,7 +227,6 @@ read -> wrangle ---.--> transform ---+-- /
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/dplyr-un-group.mov" background-video-loop="false"}
 ## {background="cs_mov/dplyr-un-group.gif"}
 
 ------------------------------------------------------------------------
@@ -249,7 +239,6 @@ read -> wrangle ---.--> transform ---+-- /
 
 ------------------------------------------------------------------------
 
-##  {background-video="cs_mov/dplyr-preserve-cases.mov" background-video-loop="false"}
 ## {background="cs_mov/dplyr-preserve-cases.gif"}
 
 ------------------------------------------------------------------------
@@ -257,8 +246,7 @@ read -> wrangle ---.--> transform ---+-- /
 ![](dplyr_case_when.png)
 
 ------------------------------------------------------------------------
-
-##  {background-video="cs_mov/dplyr-joins.mov" background-video-loop="false"}
+e
 ## {background="cs_mov/dplyr-joins.gif"}
 
 # Advanced R (5)
