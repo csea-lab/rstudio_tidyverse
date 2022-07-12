@@ -511,64 +511,98 @@
 <section id="tidyverse-concepts-2" class="slide level2">
 <h2>Tidyverse Concepts</h2>
 
-<img data-src="tidydata_3.jpg" class="r-stretch"></section>
-<section id="readr-haven-rvest-tibble-2" class="slide level2">
-<h2>readr, haven, rvest, &amp; tibble (2)</h2>
+<img data-src="tidydata_3.jpg" class="r-stretch"></section></section>
+<section>
+<section id="readr-haven-rvest-tibble-2" class="title-slide slide level1 center">
+<h1>readr, haven, rvest, &amp; tibble (2)</h1>
+
 </section>
-<section id="section-7" class="slide level2">
-<h2><img data-src="readr.png"></h2>
-</section>
-<section id="section-8" class="slide level2" data-background="cs_mov/.gif">
+<section id="importing-data" class="slide level2">
+<h2>Importing Data</h2>
+
+<img data-src="readr.png" class="r-stretch"></section>
+<section id="section-7" class="slide level2" data-background="cs_mov/.gif">
 <h2></h2>
 </section>
-<section id="section-9" class="slide level2">
-<h2><img data-src="readxl2.png"></h2>
-</section>
-<section id="section-10" class="slide level2" data-background="cs_mov/readxl.gif">
+<section id="readxl" class="slide level2">
+<h2>Readxl</h2>
+
+<img data-src="readxl2.png" class="r-stretch"></section>
+<section id="section-8" class="slide level2" data-background="cs_mov/readxl.gif">
 <h2></h2>
+</section></section>
+<section>
+<section id="tidyr" class="title-slide slide level1 center">
+<h1>Tidyr</h1>
+
 </section>
 <section class="slide level2">
 
 
 <img data-src="tidyr1.png" class="r-stretch"></section>
-<section id="section-11" class="slide level2" data-background="cs_mov/.gif">
+<section id="section-9" class="slide level2" data-background="cs_mov/.gif">
 <h2></h2>
 </section>
-<section id="section-12" class="slide level2" data-background="cs_mov/tidyr-def.gif">
+<section id="section-10" class="slide level2" data-background="cs_mov/tidyr-def.gif">
 <h2></h2>
 </section>
 <section id="tibble" class="slide level2">
 <h2>tibble</h2>
 </section>
-<section id="section-13" class="slide level2" data-background="cs_mov/tidyr-pivot.gif">
+<section id="section-11" class="slide level2" data-background="cs_mov/tidyr-pivot.gif">
 <h2></h2>
 </section>
 <section id="pivot" class="slide level2">
 <h2>pivot</h2>
 </section>
-<section id="section-14" class="slide level2" data-background="cs_mov/tidyr-sep-unite.gif">
+<section id="section-12" class="slide level2" data-background="cs_mov/tidyr-sep-unite.gif">
 <h2></h2>
 </section>
-<section id="extract-unite-separate" class="slide level2">
-<h2>extract, unite &amp; separate</h2>
+<section id="dplyr-extract-unite-separate" class="slide level2">
+<h2>Dplyr: extract, unite &amp; separate</h2>
 </section>
-<section id="dplyr" class="slide level2">
-<h2>Dplyr</h2>
+<section class="slide level2">
+
+</section></section>
+<section>
+<section id="dplyr" class="title-slide slide level1 center">
+<h1>Dplyr</h1>
+
 </section>
-<section id="section-15" class="slide level2">
+<section id="section-13" class="slide level2">
 <h2><img data-src="dplyr1.png"></h2>
 </section>
-<section id="section-16" class="slide level2" data-background="cs_mov/dplyr-pipe-summ.gif">
+<section id="section-14" class="slide level2" data-background="cs_mov/dplyr-pipe-summ.gif">
 <h2></h2>
 </section>
-<section id="section-17" class="slide level2" data-background="cs_mov/dplyr-filter-slice-cases.gif">
+<section id="dplyr-summarize" class="slide level2">
+<h2>Dplyr: Summarize</h2>
+<ul>
+<li>summarise(.data, …)
+<ul>
+<li>Compute table of summaries. <code>r summarise(mtcars, avg = mean(mpg))</code></li>
+</ul></li>
+<li>count(.data, …, wt = NULL, sort = FALSE, name = NULL)
+<ul>
+<li>Count number of rows in each group defined by the variables in … Also tally().</li>
+</ul></li>
+</ul>
+<p><code>r count(mtcars, cyl)</code></p>
+</section>
+<section id="section-15" class="slide level2" data-background="cs_mov/dplyr-filter-slice-cases.gif">
 <h2></h2>
+</section>
+<section id="dplyr-extract-cases" class="slide level2">
+<h2>Dplyr: Extract Cases</h2>
+<h3 id="row-functions-return-a-subset-of-rows-as-a-new-table.">Row functions return a subset of rows as a new table.</h3>
+<p>filter(.data, …, .preserve = FALSE) Extract rows that meet logical criteria. filter(mtcars, mpg &gt; 20)</p>
+<p>distinct(.data, …, .keep_all = FALSE) Remove rows with duplicate values. distinct(mtcars, gear)</p>
 </section>
 <section class="slide level2">
 
 
 <img data-src="dplyr_filter.jpg" class="r-stretch"></section>
-<section id="section-18" class="slide level2" data-background="cs_mov/dplyr-select-variable.gif">
+<section id="section-16" class="slide level2" data-background="cs_mov/dplyr-select-variable.gif">
 <h2></h2>
 </section>
 <section class="slide level2">
@@ -579,15 +613,21 @@
 
 
 <img data-src="dplyr_across.png" class="r-stretch"></section>
-<section id="section-19" class="slide level2" data-background="cs_mov/dplyr-mutate-variable.gif">
+<section id="section-17" class="slide level2" data-background="cs_mov/dplyr-mutate-variable.gif">
 <h2></h2>
 </section>
 <section id="mutate" class="slide level2">
 <h2>Mutate</h2>
 
 <img data-src="dplyr_mutate.png" class="r-stretch"></section>
-<section id="section-20" class="slide level2" data-background="cs_mov/dplyr-un-group.gif">
+<section id="section-18" class="slide level2" data-background="cs_mov/dplyr-un-group.gif">
 <h2></h2>
+</section>
+<section id="dplyr-group-cases" class="slide level2">
+<h2>Dplyr: Group Cases</h2>
+<p>Use group_by(.data, …, .add = FALSE, .drop = TRUE) to create a “grouped” copy of a table grouped by columns in … dplyr functions will manipulate each “group” separately and combine the results.</p>
+<p>Use rowwise(.data, …) to group data into individual rows. dplyr functions will compute results for each row. Also apply functions to list-columns. See tidyr cheat sheet for list-column workflow.</p>
+<p>ungroup(x, …) Returns ungrouped copy of table. ungroup(g_mtcars)</p>
 </section>
 <section id="dplyr-1" class="slide level2">
 <h2>Dplyr</h2>
@@ -596,15 +636,16 @@
 
 
 <img data-src="dplyr2.png" class="r-stretch"></section>
-<section id="section-21" class="slide level2" data-background="cs_mov/dplyr-preserve-cases.gif">
+<section id="section-19" class="slide level2" data-background="cs_mov/dplyr-preserve-cases.gif">
 <h2></h2>
 </section>
 <section class="slide level2">
 
 
 <img data-src="dplyr_case_when.png" class="r-stretch"></section>
-<section id="section-22" class="slide level2" data-background="cs_mov/dplyr-joins.gif">
-<h2></h2>
+<section class="slide level2">
+
+<p>e ## {background=“cs_mov/dplyr-joins.gif”}</p>
 </section></section>
 <section>
 <section id="advanced-r-5" class="title-slide slide level1 center">
