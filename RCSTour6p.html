@@ -3,7 +3,7 @@
   <meta charset="utf-8">
   <meta name="generator" content="quarto-0.9.421">
 
-  <title>Basic R &amp; Tidyverse R</title>
+  <title>rcstour6p</title>
   <meta name="apple-mobile-web-app-capable" content="yes">
   <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
@@ -382,9 +382,6 @@
   <div class="reveal">
     <div class="slides">
 
-<section id="title-slide" class="center">
-  <h1 class="title">Basic R &amp; Tidyverse R</h1>
-</section>
 
 <section>
 <section id="r2rpm6p" class="title-slide slide level1 center">
@@ -395,6 +392,11 @@
 </section>
 <section id="tidyverse-r" class="slide level2">
 <h2>Tidyverse R</h2>
+<div class="sourceCode" id="cb1"><pre class="sourceCode numberSource default number-lines code-with-copy"><code class="sourceCode default"><span id="cb1-1"><a href="#cb1-1"></a>                                          .---&gt; Communicate</span>
+<span id="cb1-2"><a href="#cb1-2"></a>read -&gt; wrangle ---.--&gt; transform ---+-- /</span>
+<span id="cb1-3"><a href="#cb1-3"></a>                   ^                 |            </span>
+<span id="cb1-4"><a href="#cb1-4"></a>                   |                 v</span>
+<span id="cb1-5"><a href="#cb1-5"></a>                   model &lt;-- visualize </span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 <div class="cell">
 
 </div>
@@ -584,12 +586,12 @@
 </ul>
 <div class="cell columns column-output-location">
 <div class="column">
-<div class="sourceCode cell-code" id="cb1" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb1-1"><a href="#cb1-1"></a>starwars <span class="sc">%&gt;%</span> </span>
-<span id="cb1-2"><a href="#cb1-2"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">case_when</span>(</span>
-<span id="cb1-3"><a href="#cb1-3"></a>    height <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">|</span> mass <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">~</span> <span class="st">"large"</span>,</span>
-<span id="cb1-4"><a href="#cb1-4"></a>    species <span class="sc">==</span> <span class="st">"Droid"</span><span class="sc">~</span> <span class="st">"robot"</span>,</span>
-<span id="cb1-5"><a href="#cb1-5"></a>    <span class="cn">TRUE</span>  <span class="sc">~</span> <span class="st">"other"</span>)</span>
-<span id="cb1-6"><a href="#cb1-6"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
+<div class="sourceCode cell-code" id="cb2" data-code-line-numbers="2"><pre class="sourceCode numberSource r number-lines code-with-copy"><code class="sourceCode r"><span id="cb2-1"><a href="#cb2-1"></a>starwars <span class="sc">%&gt;%</span> </span>
+<span id="cb2-2"><a href="#cb2-2"></a>  <span class="fu">mutate</span>(<span class="at">type =</span> <span class="fu">case_when</span>(</span>
+<span id="cb2-3"><a href="#cb2-3"></a>    height <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">|</span> mass <span class="sc">&gt;</span> <span class="dv">200</span> <span class="sc">~</span> <span class="st">"large"</span>,</span>
+<span id="cb2-4"><a href="#cb2-4"></a>    species <span class="sc">==</span> <span class="st">"Droid"</span><span class="sc">~</span> <span class="st">"robot"</span>,</span>
+<span id="cb2-5"><a href="#cb2-5"></a>    <span class="cn">TRUE</span>  <span class="sc">~</span> <span class="st">"other"</span>)</span>
+<span id="cb2-6"><a href="#cb2-6"></a>    )</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
 </div><div class="column fragment">
 <div class="cell-output cell-output-stdout">
 <pre><code># A tibble: 87 × 15

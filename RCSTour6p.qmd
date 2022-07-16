@@ -1,5 +1,4 @@
 ---
-title: "Basic R & Tidyverse R"
 format: 
   revealjs:
     slide-number: true
@@ -17,7 +16,7 @@ Readr, Tidyr, Dplyr
 
 ## Tidyverse R
 
-```{verbatim}
+```{verbatim, echo=T}
                                           .---> Communicate
 read -> wrangle ---.--> transform ---+-- /
                    ^                 |            
