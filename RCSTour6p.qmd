@@ -1,0 +1,182 @@
+---
+title: "Basic R & Tidyverse R"
+format: 
+  revealjs:
+    slide-number: true
+    preview-links: auto
+    css: zoom-in-out.css
+---
+
+# $R2r\pm6p$
+
+*R Tour in about 6 pages*
+
+Readr, Tidyr, Dplyr
+
+![](data-import-cheatsheet-thumbs.png){.absolute top="-250" right="30" height="300"} ![](tidyr-thumbs.png){.absolute top="0" right="-35" height="300"} ![](data-transformation-cheatsheet-thumbs.png){.absolute bottom="-250" right="30" height="300"}
+
+## Tidyverse R
+
+```{verbatim}
+                                          .---> Communicate
+read -> wrangle ---.--> transform ---+-- /
+                   ^                 |            
+                   |                 v
+                   model <-- visualize 
+```
+
+```{r}
+library(tidyverse)
+```
+
+## Tidyverse Concepts
+
+![](tidydata_1.jpg)
+
+## Tidyverse Concepts
+
+![](tidydata_2.jpg)
+
+## Tidyverse Concepts
+
+![](tidydata_3.jpg)
+
+# Importing Data with *readr*
+
+## Readr
+
+![](readr.png)
+
+# Tidy Dataframes with *tidyr*
+
+## Tidyr
+
+![](tidyr1.png)
+
+## Tibble (an enhanced R dataframe)
+
+-   *Tibbles* are a table format provided by the tibble package.
+-   They inherit the data frame class, but have improved behaviors:
+    -   Subset a new tibble with \], a vector with \[\[ and \$.
+    -   No partial matching when subsetting columns.
+    -   Display concise views of the data on one screen.
+
+## Tidyr: Reshape data with pivot\_
+
+-   *pivot longer*: Pivot data to reorganize values into a new layout.
+    -   "Lengthen" data by collapsing several columns into two.
+    -   Column names move to a new names_to column and values to a new values_to column.
+-   *pivot_wider*: inverse of pivot_longer().
+    -   "Widen" data by expanding two columns into several.
+    -   One column provides the new column names, the other the values.
+
+## Tidyr: unite & separate {.smaller}
+
+Use these functions to split or combine cells into individual, isolated values.
+
+-   *unite(data, col, ..., sep = "\_", remove = TRUE, na.rm = FALSE)*
+    -   Collapse cells across several columns into a single column.
+    -   unite(table5, century, year, col = "year", sep = "")
+-   *separate(data, col, into, sep = "\[\^\[:alnum:\]\]+", remove = TRUE, convert = FALSE, extra = "warn", fill = "warn", ...)*
+    -   Separate each cell in a column into several columns. Also extract().
+    -   separate(table3, rate, sep = "/",into = c("cases", "pop"))
+-   *separate_rows(data, ..., sep = "\[\^\[:alnum:\].\]+", convert = FALSE)*
+    -   Separate each cell in a column into several rows.
+    -   separate_rows(table3, rate, sep = "/")
+
+# Dataframe transformation with dplyr
+
+## Dplyr - p1:
+
+-   pipe data from functions
+-   manipulate cases (rows)
+-   manipulate variables (columns)
+
+## ![](dplyr1.png)
+
+## Dplyr: Summarize
+
+-   *summarise(.data, ...)*
+    -   Compute table of summaries. r
+    -   summarise(mtcars, avg = mean(mpg))
+-   *count(.data, ..., wt = NULL, sort = FALSE, name = NULL)*
+    -   Count number of rows in each group defined by the variables in ...
+    -   Also tally().count(mtcars, cyl)
+
+## Dplyr: Extract Cases
+
+#### Row functions return a subset of rows as a new table.
+
+-   *filter(.data, ..., .preserve = FALSE)*
+    -   Extract rows that meet logical criteria.
+    -   filter(mtcars, mpg \> 20)
+-   *distinct(.data, ..., .keep_all = FALSE)*
+    -   Remove rows with duplicate values. distinct(mtcars, gear)
+
+------------------------------------------------------------------------
+
+![](dplyr_filter.jpg)
+
+------------------------------------------------------------------------
+
+![](dplyr_relocate.png)
+
+------------------------------------------------------------------------
+
+![](dplyr_across.png)
+
+------------------------------------------------------------------------
+
+## Mutate
+
+![](dplyr_mutate.png)
+
+## Dplyr: Group Cases
+
+-   Use *group_by(.data, ..., .add = FALSE, .drop = TRUE)* to create a "grouped" copy of a table grouped by columns in ... dplyr functions will manipulate each "group" separately and combine the results.
+
+-   Use rowwise(.data, ...) to group data into individual rows.
+
+    -   dplyr functions will compute results for each row.
+    -   Also apply functions to list-columns.
+    -   See tidyr cheat sheet for list-column workflow.
+
+-   *ungroup(x, ...)* Returns ungrouped copy of table.
+
+-   *ungroup(g_mtcars)*
+
+## Dplyr - p2:
+
+-   vectorized functions map 1 to 1 from input to output so number of cases (rows) in ='s number out
+-   summary functions output less than #of cases in (combined with group_by() from dplyr p.1 determines number of outputs)
+-   this principle is embodied by the "split-apply-combine" approach
+-   relational joins: straight out of linear algebra and - most of the useful tidyverse meta-programming
+
+------------------------------------------------------------------------
+
+![](dplyr2.png){#zoom10 .zoom-in-7}
+
+## Vectorized functions: work on variables (columns)
+
+-   *dplyr::if_else()* - element-wise if() + else()
+-   *dplyr::na_if()* - replace specific values with NA
+
+------------------------------------------------------------------------
+
+![](dplyr_case_when.png)
+
+## case_when
+
+-   *dplyr::case_when()* - multi-case if_else()
+
+```{r, eval=TRUE}
+#| echo: true
+#| code-line-numbers: "2"
+#| output-location: column-fragment
+starwars %>% 
+  mutate(type = case_when(
+    height > 200 | mass > 200 ~ "large",
+    species == "Droid"~ "robot",
+    TRUE  ~ "other")
+    )
+```
