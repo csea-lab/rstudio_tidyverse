@@ -1,9 +1,12 @@
 ---
+editor: source
 format: 
   revealjs:
     slide-number: true
     preview-links: auto
     css: zoom-in-out.css
+editor_options: 
+  chunk_output_type: console
 ---
 
 # $R2r\pm6p$
@@ -12,7 +15,85 @@ format:
 
 Readr, Tidyr, Dplyr
 
-![](data-import-cheatsheet-thumbs.png){.absolute top="-250" right="30" height="300"} ![](tidyr-thumbs.png){.absolute top="0" right="-35" height="300"} ![](data-transformation-cheatsheet-thumbs.png){.absolute bottom="-250" right="30" height="300"}
+![](data-import-cheatsheet-thumbs.png){.absolute top="-130" right="30" height="200"} ![](tidyr-thumbs.png){.absolute top="60" right="30" height="200"} ![](data-transformation-cheatsheet-thumbs.png){.absolute bottom="-190" right="30" height="200"}
+
+## Tidyverse R
+
+```{verbatim, echo=T}
+                                          
+read -> 
+                              
+                   
+                  
+```
+
+-   readr
+
+```{r echo=FALSE}
+library(tidyverse)
+```
+
+## Tidyverse R
+
+```{verbatim, echo=T}
+                                          
+read -> wrangle 
+                               
+                   
+                    
+```
+
+-   tidyr
+
+## Tidyverse R
+
+```{verbatim, echo=T}
+                                         
+read -> wrangle ------> transform 
+                                                 
+                                     
+                   
+```
+
+-   dplyr
+
+## Tidyverse R
+
+```{verbatim, echo=T}
+                                          
+read -> wrangle ------> transform ---.
+                                     |            
+                                     v
+                             visualize 
+```
+
+-   ggplot2
+
+## Tidyverse R
+
+```{verbatim, echo=T}
+                                        
+read -> wrangle ------> transform ---.
+                                     |            
+                                     v
+                   model <-- visualize 
+```
+
+-   ez
+-   afex
+
+## Tidyverse R
+
+```{verbatim, echo=T}
+                                          
+read -> wrangle ---.--> transform ---.
+                   ^                 |            
+                   |                 v
+                   model <-- visualize 
+```
+
+-   xtable
+-   rmarkdown
 
 ## Tidyverse R
 
@@ -24,9 +105,15 @@ read -> wrangle ---.--> transform ---+-- /
                    model <-- visualize 
 ```
 
-```{r}
-library(tidyverse)
-```
+-   knitr
+-   rstudio notebook
+-   quarto
+-   bookdown
+-   blogdown
+
+# Tidyverse in a Nutshell
+
+|     Tidyverse is a set of packages with code methods to form and to work with rectangular data. Data-frames have variables as columns & cases as rows. Everything else is a matter of getting data into that form.
 
 ## Tidyverse Concepts
 
@@ -46,9 +133,17 @@ library(tidyverse)
 
 ![](readr.png)
 
+---
+
+![](readr.png)
+
 # Tidy Dataframes with *tidyr*
 
 ## Tidyr
+
+![](tidyr1.png)
+
+---
 
 ![](tidyr1.png)
 
@@ -59,6 +154,10 @@ library(tidyverse)
     -   Subset a new tibble with \], a vector with \[\[ and \$.
     -   No partial matching when subsetting columns.
     -   Display concise views of the data on one screen.
+
+---
+
+![](tidyr1.png)
 
 ## Tidyr: Reshape data with pivot\_
 
@@ -91,7 +190,9 @@ Use these functions to split or combine cells into individual, isolated values.
 -   manipulate cases (rows)
 -   manipulate variables (columns)
 
-## ![](dplyr1.png)
+--- 
+
+![](dplyr1.png)
 
 ## Dplyr: Summarize
 
@@ -102,47 +203,242 @@ Use these functions to split or combine cells into individual, isolated values.
     -   Count number of rows in each group defined by the variables in ...
     -   Also tally().count(mtcars, cyl)
 
-## Dplyr: Extract Cases
+
+
+
+---
+
+![](dplyr1.png)
+
+## Dplyr: Extract Cases {.smaller}
 
 #### Row functions return a subset of rows as a new table.
 
+::: columns
+::: {.column width="50%"}
 -   *filter(.data, ..., .preserve = FALSE)*
     -   Extract rows that meet logical criteria.
     -   filter(mtcars, mpg \> 20)
+:::
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+#| output-location: column-fragment
+starwars %>% 
+  filter(species == "Droid")
+```
+:::
+:::
+
+
+::: columns
+::: {.column width="50%"}
 -   *distinct(.data, ..., .keep_all = FALSE)*
     -   Remove rows with duplicate values. distinct(mtcars, gear)
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+#| output-location: column-fragment
+starwars %>% 
+  distinct(homeworld)
+```
+:::
+:::
+
+
+
 
 ------------------------------------------------------------------------
 
 ![](dplyr_filter.jpg)
 
+
+## Dplyr: Arrange Cases {.smaller}
+
+::: columns
+::: {.column width="50%"}
+-   *arrange(.data, ..., .by_group = FALSE)*
+    -   Order rows by values of a column or columns (low to high), use with desc() to order from high to low.
+-   arrange(mtcars, mpg)
+-   arrange(mtcars, desc(mpg))
+:::
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "4"
+#| output-location: column-fragment
+starwars %>% 
+  mutate(name, bmi = mass / ((height / 100)  ^ 2)) %>%
+  select(name:mass, bmi) %>% 
+  arrange(desc(bmi))
+```
+
+:::
+:::
+
+------------------------------------------------------------------------
+
+
+![](dplyr1.png)
+
+
+## Dplyr: Manipulate Variables {.smaller}
+
+#### Extract Variables
+
+Column functions return a set of columns as a new vector or table.
+
+::: columns
+::: {.column width="50%"}
+-   *pull(.data, var = -1, name = NULL, ...)*
+    -   Extract column values as a vector, by name or index.
+    -   pull(mtcars, wt)
+-   *select(.data, ...)*
+    -   Extract columns as a table.
+    -   select(mtcars, mpg, wt)
+
+:::
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+#| output-location: column-fragment
+starwars %>% 
+  select(name, ends_with("color"))
+```
+
+:::
+:::
+
+-   *relocate(.data, ..., .before = NULL, .after = NULL)*
+    -   Move columns to new position.
+    -   relocate(mtcars, mpg, cyl, .after = last_col())
+    
 ------------------------------------------------------------------------
 
 ![](dplyr_relocate.png)
+
+## Dplyr: Manipulate Variables {.smaller}
+
+#### Manipulate multiple variables at once
+
+Use these helpers with select() and across() e.g. select(mtcars, mpg:cyl)
+
+-   contains(match)
+-   ends_with(match)
+-   starts_with(match)
+-   num_range(prefix, range)
+-   all_of(x)/any_of(x, ..., vars)
+-   matches(match)
+-   everything()
 
 ------------------------------------------------------------------------
 
 ![](dplyr_across.png)
 
-------------------------------------------------------------------------
+
+## Dplyr: Make New Variables {.smaller}
+Apply vectorized functions to columns. 
+Vectorized functions take vectors as input and return vectors of the same length as output.
+
+*mutate(.data, ..., .keep = "all", .before = NULL, .after = NULL)*  
+
+::: columns
+::: {.column width="55%"}
+-   Compute **new** column(s).  
+-   add_column(), add_count(), add_tally()  
+-   mutate(mtcars, gpm = 1 / mpg)  
+
+*transmute(.data, ...)*  
+  
+-   Compute **new** column(s), **drop** others.  
+-   transmute(mtcars, gpm = 1 / mpg)  
+  
+*rename(.data, ...)*  
+  
+-   **Rename** columns.  
+-   Use rename_with() to rename with a function.  
+-   rename(cars, distance = dist)  
+
+:::
+::: {.column width="45%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "4"
+#| output-location: column-fragment
+starwars %>% 
+  mutate(name, bmi = mass / ((height / 100)  ^ 2)) %>%
+  select(name:mass, bmi) %>% 
+  arrange(desc(bmi))
+```
+
+:::
+:::
+
+
+---
+
+![](dplyr1.png)
+
 
 ## Mutate
 
 ![](dplyr_mutate.png)
 
-## Dplyr: Group Cases
 
--   Use *group_by(.data, ..., .add = FALSE, .drop = TRUE)* to create a "grouped" copy of a table grouped by columns in ... dplyr functions will manipulate each "group" separately and combine the results.
 
--   Use rowwise(.data, ...) to group data into individual rows.
+---
 
-    -   dplyr functions will compute results for each row.
-    -   Also apply functions to list-columns.
-    -   See tidyr cheat sheet for list-column workflow.
+![](dplyr1.png)
 
--   *ungroup(x, ...)* Returns ungrouped copy of table.
 
--   *ungroup(g_mtcars)*
+## Dplyr: Group Cases {.smaller}
+
+Use *group_by(.data, ..., .add = FALSE, .drop = TRUE)* 
+
+::: columns
+::: {.column width="60%"}  
+
+- to create a "grouped" copy of a table grouped by columns in ... 
+- dplyr functions will manipulate each "group" separately and combine the results.
+  
+Use rowwise(.data, ...) to group data into rows.
+
+-   dplyr functions will compute results for each row.
+-   Also apply functions to list-columns.
+-   See tidyr cheat sheet for list-column workflow.  
+  
+*ungroup(x, ...)* Returns ungrouped copy of table.  
+  
+*ungroup(g_mtcars)*  
+  
+:::
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "2|3,5"
+#| output-location: column-fragment
+starwars %>%
+  group_by(species) %>%
+  summarise(
+    n = n(),
+    mass = mean(mass, na.rm = TRUE)
+  ) %>%
+  filter(n > 1)
+```
+
+:::
+:::
+
+
+## Dplyr - p2:
+
+![](dplyr2.png)
+
 
 ## Dplyr - p2:
 
@@ -153,18 +449,43 @@ Use these functions to split or combine cells into individual, isolated values.
 
 ------------------------------------------------------------------------
 
-![](dplyr2.png){#zoom10 .zoom-in-7}
+![](dplyr2.png){#zoom7 .zoom-in-7}
 
-## Vectorized functions: work on variables (columns)
+## Dplyr: Vectorized functions:{.smaller}
 
--   *dplyr::if_else()* - element-wise if() + else()
--   *dplyr::na_if()* - replace specific values with NA
+### work on variables (columns) 
 
-------------------------------------------------------------------------
+::: columns
+::: {.column width="40%"}  
 
-![](dplyr_case_when.png)
+*dplyr::if_else()*  
+  
+- element-wise if() + else()  
+  
+*dplyr::na_if()*  
+  
+- replace specific values with NA
 
-## case_when
+ 
+:::
+::: {.column width="60%"}
+```{r}
+#| echo: true
+#| output-location: column-fragment
+starwars %>% 
+  mutate(
+    cent=if_else(birth_year<100,0,1),
+    ) %>% 
+  filter(cent==1) %>% 
+  select(name,cent,birth_year,species)
+  
+```
+
+:::
+:::
+
+
+## Dplyr: case_when {.smaller}
 
 -   *dplyr::case_when()* - multi-case if_else()
 
@@ -176,6 +497,12 @@ starwars %>%
   mutate(type = case_when(
     height > 200 | mass > 200 ~ "large",
     species == "Droid"~ "robot",
-    TRUE  ~ "other")
+    TRUE  ~ "other"),
+    .before=height
     )
+
 ```
+
+------------------------------------------------------------------------
+
+![](dplyr_case_when.png)

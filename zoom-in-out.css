@@ -63,12 +63,35 @@
   }
 }
 
+
+
+.zoom-in-6 {
+  margin: 24px;
+  width: 100%;
+  height: 100%;
+  background: #ffffff;
+  animation: zoom-in-6 10s ease 0.5;
+}
+
+@keyframes zoom-in-6 {
+  0% {
+    transform: scale(1., 1.);
+  }
+  50% {
+    transform: scale(1.5, 1.5) translate(0%,-25%);
+  }
+  100% {
+    transform: scale(2, 2) translate(0%, -50%);
+
+  }
+}
+
 .zoom-in-7 {
   margin: 24px;
   width: 2474px;
   height: 1910px;
   background: #ffffff;
-  animation: zoom-in-7 10s ease 0.5;
+  animation: zoom-in-7 20s ease 0.5;
 }
 
 @keyframes zoom-in-7 {
@@ -76,10 +99,10 @@
     transform: scale(1., 1.);
   }
   50% {
-    transform: scale(1.5, 1.5) translate(25%, 0%);
+    transform: scale(2,2) translate(25%, 5%);
   }
   100% {
-    transform: scale(2, 2) translate(50%, 0%);
+    transform: scale(3, 3) translate(90%, 20%);
 
   }
 }
