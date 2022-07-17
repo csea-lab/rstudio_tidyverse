@@ -194,15 +194,48 @@ Use these functions to split or combine cells into individual, isolated values.
 
 ![](dplyr1.png)
 
-## Dplyr: Summarize
+## Dplyr: Summarize {.smaller}
 
--   *summarise(.data, ...)*
-    -   Compute table of summaries. r
-    -   summarise(mtcars, avg = mean(mpg))
--   *count(.data, ..., wt = NULL, sort = FALSE, name = NULL)*
-    -   Count number of rows in each group defined by the variables in ...
-    -   Also tally().count(mtcars, cyl)
+::: columns
+::: {.column width="60%"}
 
+*summarise(.data, ...)*  
+  
+-   Compute table of summaries.
+
+:::
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+#| output-location: column-fragment
+summarise(mtcars, avg = mean(mpg))
+```
+
+:::
+:::
+
+::: columns
+::: {.column width="60%"}
+
+*count(.data, ..., wt = NULL, sort = FALSE, name = NULL)*  
+
+-   Count number of rows in each <br>group defined by the variables in ...
+-   Also tally().
+
+
+:::
+::: {.column width="40%"}
+```{r}
+#| echo: true
+#| code-line-numbers: "2"
+#| output-location: column-fragment
+starwars %>% 
+  count(species,sort = TRUE)
+```
+
+:::
+:::
 
 
 
