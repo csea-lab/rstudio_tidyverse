@@ -81,6 +81,10 @@ read -> wrangle ------> transform ---.
 
 -   ez
 -   afex
+- emmeans
+- effectsize
+- bayesfactor
+- rstan
 
 ## Tidyverse R
 
@@ -94,6 +98,11 @@ read -> wrangle ---.--> transform ---.
 
 -   xtable
 -   rmarkdown
+- kableExtra
+- broom
+
+
+
 
 ## Tidyverse R
 
@@ -110,6 +119,8 @@ read -> wrangle ---.--> transform ---+-- /
 -   quarto
 -   bookdown
 -   blogdown
+- papaja
+- gtsummary
 
 # Tidyverse in a Nutshell
 
