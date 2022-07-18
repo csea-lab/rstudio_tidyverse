@@ -113,7 +113,10 @@ read -> wrangle ---.--> transform ---+-- /
 
 # Tidyverse in a Nutshell
 
-|     Tidyverse is a set of packages with code methods to form and to work with rectangular data. Data-frames have variables as columns & cases as rows. Everything else is a matter of getting data into that form.
+|   Tidyverse is a set of packages with methods to  
+|       form and to work with rectangular data (variables x cases).  
+|   Data-frames have variables as *columns* & cases as *rows*. 
+ 
 
 ## Tidyverse Concepts
 
@@ -159,28 +162,195 @@ read -> wrangle ---.--> transform ---+-- /
 
 ![](tidyr1.png)
 
-## Tidyr: Reshape data with pivot\_
+## Tidyr: Reshape data with pivot_longer {.smaller}
 
--   *pivot longer*: Pivot data to reorganize values into a new layout.
-    -   "Lengthen" data by collapsing several columns into two.
-    -   Column names move to a new names_to column and values to a new values_to column.
--   *pivot_wider*: inverse of pivot_longer().
-    -   "Widen" data by expanding two columns into several.
-    -   One column provides the new column names, the other the values.
+*pivot longer*: Pivot data to reorganize values into a new layout.  
 
-## Tidyr: unite & separate {.smaller}
+::: columns
+::: {.column width="50%"}
 
-Use these functions to split or combine cells into individual, isolated values.
+- "Lengthen" data by collapsing several columns into two.
+- Column names move to a new <br> names_to column and values <br> to a new values_to column.
 
--   *unite(data, col, ..., sep = "\_", remove = TRUE, na.rm = FALSE)*
-    -   Collapse cells across several columns into a single column.
-    -   unite(table5, century, year, col = "year", sep = "")
--   *separate(data, col, into, sep = "\[\^\[:alnum:\]\]+", remove = TRUE, convert = FALSE, extra = "warn", fill = "warn", ...)*
-    -   Separate each cell in a column into several columns. Also extract().
-    -   separate(table3, rate, sep = "/",into = c("cases", "pop"))
--   *separate_rows(data, ..., sep = "\[\^\[:alnum:\].\]+", convert = FALSE)*
-    -   Separate each cell in a column into several rows.
-    -   separate_rows(table3, rate, sep = "/")
+
+```{r}
+#| results: asis
+table4a %>% kableExtra::kable()
+```
+
+:::
+::: {.column width="50%"}
+```{r}
+#| echo: true
+#| eval: false
+pivot_longer(table4a, cols = 2:3, 
+             names_to ="year", 
+             values_to = "cases")
+```
+
+```{r}
+#| echo: false
+#| results: asis
+pivot_longer(table4a, cols = 2:3, 
+             names_to ="year", 
+             values_to = "cases") %>% kableExtra::kable()
+```
+
+:::
+::: 
+
+
+## Tidyr: Reshape data with pivot_wider {.smaller}
+
+*pivot_wider*: inverse of pivot_longer().  
+  
+- "Widen" data by expanding two columns into several.
+- One column provides a new column, names, the other, values.
+
+::: columns
+::: {.column width="53%"}
+
+```{r}
+#| results: asis
+table2 %>% kableExtra::kable() %>% kableExtra::kable_styling(font_size = 20)
+```
+
+:::
+::: {.column width="47%"}
+
+```{r}
+#| echo: true
+#| eval: false
+pivot_wider(table2, 
+            names_from = type,
+            values_from = count
+            )
+```
+
+
+```{r}
+#| echo: false
+#| results: asis
+pivot_wider(table2, 
+            names_from = type,
+            values_from = count
+            ) %>% kableExtra::kable() %>% kableExtra::kable_styling(font_size=20)
+```
+
+:::
+:::
+
+
+
+
+## Tidyr: unite {.smaller}
+  
+*unite(data, col, …, sep = "_", remove = TRUE, na.rm = FALSE)*
+
+::: columns
+::: {.column width="60%"}
+- Collapse cells across several columns into <br>a single column.  
+
+```{r}
+#| results: asis
+table5 %>% kableExtra::kable() %>% kableExtra::kable_styling(font_size = 20)
+```
+
+:::
+::: {.column width="40%"}
+
+```{r}
+#| echo: true
+#| eval: false
+unite(table5, 
+      century, year, 
+      col = "year", 
+      sep = "")
+```
+
+```{r}
+#| echo: false
+#| results: asis
+unite(table5, century, year, col = "year", sep = "") %>% kableExtra::kable() %>% kableExtra::kable_styling(font_size = 20)
+```
+
+:::
+:::
+
+
+## Tidyr: separate {.smaller}
+
+*separate(data, col, into, sep = "\[\^\[:alnum:\]\]+", remove = TRUE, convert = FALSE, extra = "warn", fill = "warn", ...)*  
+  
+
+
+::: columns
+::: {.column width="50%"}
+- Separate each cell in a column into <br> several columns. 
+- Also extract().
+
+```{r}
+#| results: asis
+table3 %>% kableExtra::kable() %>% kableExtra::kable_styling(font_size = 20)
+```
+
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: false
+separate(table3, 
+         rate, 
+         sep = "/",
+         into = c("cases", "pop")
+         ) 
+```
+
+```{r}
+#| echo: false
+#| results: asis
+separate(table3, rate, 
+         sep = "/",
+         into = c("cases", "pop")) %>% kableExtra::kable() %>% kableExtra::kable_styling(font_size = 20)
+```
+
+:::
+:::
+
+
+## Tidyr: separate_rows {.smaller}
+
+*separate_rows(data, ..., sep = "\[\^\[:alnum:\].\]+", convert = FALSE)*  
+  
+-   Separate each cell in a column into several rows.
+
+::: columns
+::: {.column width="50%"}
+
+```{r}
+#| results: asis
+table3 %>% kableExtra::kable()
+```
+:::
+::: {.column width="50%"}
+
+```{r}
+#| echo: true
+#| eval: false
+separate_rows(table3, rate, sep = "/")
+```
+
+
+```{r}
+#| echo: false
+#| results: asis
+separate_rows(table3, rate, sep = "/") %>% kableExtra::kable()
+```
+
+:::
+:::
+
 
 # Dataframe transformation with dplyr
 
@@ -374,6 +544,11 @@ Use these helpers with select() and across() e.g. select(mtcars, mpg:cyl)
 ![](dplyr_across.png)
 
 
+---
+
+![](dplyr1.png)
+
+
 ## Dplyr: Make New Variables {.smaller}
 Apply vectorized functions to columns. 
 Vectorized functions take vectors as input and return vectors of the same length as output.
@@ -399,12 +574,14 @@ Vectorized functions take vectors as input and return vectors of the same length
 
 :::
 ::: {.column width="45%"}
+
 ```{r}
 #| echo: true
-#| code-line-numbers: "4"
+#| code-line-numbers: "2,3|5"
 #| output-location: column-fragment
 starwars %>% 
-  mutate(name, bmi = mass / ((height / 100)  ^ 2)) %>%
+  mutate(name, bmi = 
+           mass/((height/100)^ 2)) %>%
   select(name:mass, bmi) %>% 
   arrange(desc(bmi))
 ```
@@ -412,10 +589,6 @@ starwars %>%
 :::
 :::
 
-
----
-
-![](dplyr1.png)
 
 
 ## Mutate
@@ -539,3 +712,7 @@ starwars %>%
 ------------------------------------------------------------------------
 
 ![](dplyr_case_when.png)
+
+
+---
+
