@@ -122,6 +122,36 @@ read -> wrangle ---.--> transform ---+-- /
 - papaja
 - gtsummary
 
+## Sources & Recommended Reading {.smaller}
+
+::: columns
+::: {.column width="65%"}
+- [rstudio-education.github.io/hopr/](https://rstudio-education.github.io/hopr/)
+
+![](hopr-cover.png){.absolute top="120" left="100" height="400"}
+  
+
+:::
+::: {.column width="35%"}
+  
+- [r4ds.had.co.nz](https://r4ds.had.co.nz)
+
+![](r4ds-cover.png){.absolute top="120" right="100" height="400"}
+
+
+:::
+:::
+
+::: aside
+   
+- Info  
+  
+   - [readr/tidyr/dplyr cheatsheets](https://www.rstudio.com/resources/cheatsheets/)
+   - [information on the tidyverse ](https://tidyverse.tidyverse.org)
+   - [tidyverse packages](https://www.tidyverse.org/packages/)
+   - to install all the tidyverse in R: $install.packages("tidyverse")$
+:::
+
 # Tidyverse in a Nutshell
 
 |   Tidyverse is a set of packages with methods to  
